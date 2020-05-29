@@ -1,0 +1,62 @@
+<div class="container">
+<p align="right"><a (click)="onLogout()">Logout</a></p>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Movie Name</th>
+        <th>Movie Director</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let movie of movies">
+        <td>{{movie.id}}</td>
+        <td>{{movie.name}}</td>
+        <td>{{movie.director}}</td>
+        <td width ="20%"><button type="button" style="margin-left: 30px;" class="btn btn-success btn-md" (click)="onEdit(movie)">Edit</button><button type="button" class ="btn btn-danger btn-md" style="margin-left: 30px;" (click)="onDelete(movie)">Delete</button></td>
+      </tr>
+        </tbody>
+  </table>
+</div>
+<div class="container">
+    <button type="button" class="btn btn-link" (click)="addRecord()"><h4>Add a New Movie Record</h4></button>
+  </div>
+<div *ngIf="addRecordFlag" class="container">
+    <h2>Add a New Movie Record</h2>
+    <form #movieForm = "ngForm" (ngSubmit) = "addMovie(movieForm.value)">
+    <div class="form-group">
+    <label for="name">Movie Name</label>
+    <input type="text" name = "name" class="form-control" id="name" ngModel required>
+    </div>
+
+    <div class="form-group">
+    <label for="director">Director</label>
+    <input type="text" name = "director" class="form-control" id="director" ngModel required>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="movieForm.invalid">Submit</button>
+
+    </form>
+</div>
+
+<div *ngIf="updateFlag" class="container">
+    <h2>Edit Movie Record</h2>
+    <form #movieForm = "ngForm" (ngSubmit) = "updateMovie(movieForm.value)">
+    <div class="form-group">
+      <input type="hidden" name = "id" class="form-control" id="name" [(ngModel)]="movie.id">
+    </div>
+    <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" name = "name" class="form-control" id="name" [(ngModel)]="movie.name" required>
+    </div>
+
+    <div class="form-group">
+    <label for="director">Director</label>
+    <input type="text" name = "director" class="form-control" id="director" [(ngModel)]="movie.director" required>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="movieForm.invalid">Update</button>
+
+    </form>
+</div>

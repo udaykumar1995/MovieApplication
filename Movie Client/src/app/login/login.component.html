@@ -1,0 +1,19 @@
+<div   class="col-md-6 col-md-offset-3" >
+  <h2>Login</h2>
+  <div *ngIf="iserror"><span [style.color]="proportion === '100' ? 'green' : 'red'"> Invalid username or password</span>
+</div>
+  <form #loginForm = "ngForm" (ngSubmit) = "login(loginForm.value)" >
+      <div class="form-group">
+  <label for="userName">UserName</label>
+  <input type="text" name = "userName" class="form-control"  autocomplete="userName" id="userName" ngModel required>
+  </div>
+  <div class="form-group">
+  <label for="password">Password</label>
+  <input type="password" name = "password" class="form-control" autocomplete="password" id="password" ngModel required>
+  </div >
+  <div class="form-group">
+      <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Sign In</button>
+      <a routerLink="/register" routerLinkActive="active" class="btn btn-link">Click here to Register</a>
+    </div>
+  </form>
+</div>
