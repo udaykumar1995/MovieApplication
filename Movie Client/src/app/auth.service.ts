@@ -4,8 +4,8 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-registrationUrl='http://18.219.121.39:8080/auth/register';
-loginUrl='http://18.219.121.39:8080/auth/login';
+registrationUrl='http://18.218.110.140:8080/auth/register';
+loginUrl='http://18.218.110.140:8080/auth/login';
     constructor(private http: HttpClient) { }
 
 addUser(data:any) {
