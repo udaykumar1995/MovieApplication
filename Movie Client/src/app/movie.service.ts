@@ -7,7 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   providedIn: 'root'
 })
 export class MovieService {
-  apiUrl = 'http://18.219.121.39:8080/movie';
+  apiUrl = 'http://18.218.110.140:8080/movie';
 constructor(private http: HttpClient) { }
   getMovies() {
     let token = localStorage.getItem('access_token');
